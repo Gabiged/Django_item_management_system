@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+  <ul>
+      <li><strong>Available trade names:</strong> {{ num_autos }}</li>
+      <li><strong>All categories: </strong> {{ num_categ }}</li>
+      <li><strong>In total passenger car name glasses: </strong> {{ num_categ_leng }}</li>
+      <li><strong>Total of minibus nameplates: </strong> {{ num_categ_mikr }}</li>
+      <li><strong>Total of truck name glasses: </strong> {{ num_categ_sunk }}</li>
+      <li><strong>Total product balances: </strong> {{ num_lik }} vnt.</li>
+  </ul>
+
+
+<p>You are visiting: {{ num_visits }} times</p>
+{% endblock content %}

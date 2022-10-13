@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="media">
+<img class="rounded-circle"
+src="{{object.pirkejas.profilis.nuotrauka.url}}">
+</div>
+<h1>Mano esami užsakymai:</h1>
+<ul>
+    <h4>Užsakymo statusas:</h4>
+    <h1>{{object.due_back}}</h1>
+<div class="col-md4 d-flex align-items-stretch">
+    {% for eilute in object.orders.all%}
+        {{eilute}}
+    {% endfor%}
+</div>
+  <p class="{% if uzsakymas.status == 'l' %}text-success{% elif uzsakymas.status == 'a' %}text-danger{% else %}
+               text-warning{%endif%}">
+      {{object.get_status_display}}
+  </p>
+    {% if object.status != 'a' %}
+        <p>Užsakymas turi būti įvykdytas: {{ object.due_back }}</p>
+    {% endif %}
+   <p class = 'text-muted'>Id: {{object.id }}</p>
+</div>
+</ul>
+
+{% endblock %}

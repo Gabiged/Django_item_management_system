@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{%load static%}
+{% load render_table from django_tables2 %}
+
+
+<h1 class="title">Automobilių stiklų sąrašas</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+<body>
+    {% render_table object_list %}
+
+
+{%endblock%}

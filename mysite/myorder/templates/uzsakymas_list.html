@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1>Mano užsakymų sąrašas</h1>
+{% if uzsakymai %}
+    {% for uzsakymasinst in uzsakymai %}
+ <div class="col-md4 d-flex align-items-stretch">
+    <a href="{{uzsakymasinst.id}}". >{{uzsakymasinst.uzsakymo_laikas}}, Užsakymo suma: {{uzsakymasinst.suma_all}}></a>
+    <p><strong> Užsakymo atlikimo laikas:</strong> {{uzsakymasinst.due_back}}</p>
+ </div>
+    {% endfor %}
+{% else %}
+    <p>Jūs nieko neužsakėte</p>
+{% endif %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; pirmas</a>
+            <a href="?page={{page_obj.previous_page_number}}">atgal</a>
+        {% endif %}
+
+        <span class="current">
+            {{page_obj.number}} iš {{page_obj.paginator.num_pages}}
+        </span>
+        {% if page_obj.has_next %}
+            <a href="?page={{page_obj.next_page_number}}">pirmyn</a>
+            <a href="?page={{page_obj.paginator.num_pages}}">paskutinis &raquo;</a>
+        {%endif%}
+    </span>
+</div>
+{% endblock %}
